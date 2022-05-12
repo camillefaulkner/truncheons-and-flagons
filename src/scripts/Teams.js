@@ -1,14 +1,14 @@
-import { getTeams, setTeamId } from "./dataAccess.js";
+import { getState, getTeams, setTeamId } from "./dataAccess.js";
 
 //map teams and print HTML for dropdown list
 
 export const Teams = () => {
     let teams = getTeams()
-    let html = `<select class="teams">
+    let html = `<select id="teams">
     <option value="0">Choose one...</option>`
 
     let teamList = teams.map(team => { 
-        return `<option id="team--${team.id}">${team.name}</option>`
+        return `<option value="${team.id}">${team.name}</option>`
     })
 
     html += teamList.join("")
@@ -22,20 +22,11 @@ const mainContainer = document.querySelector(".container")
 mainContainer.addEventListener(
     "change",
     (event) => {
-        if (event.target.id === "team") {
-            const [, teamId] = event.target.value.split("--")
-
-            let newReservationId = parseInt(reservationId)
-            let newClownId = parseInt(clownId)
-  
-            const completion = {
-                reservationId: newReservationId,
-                clownId: newClownId,
-                date_created: Date.now()
-             }
-
-             saveCompletion(completion)
-
+        if (event.target.id === "teams") {
+            const [, teamId] = event.target.value
+            setTeamId(parseInt(teamId))
+            let state = getState()
+            console.log(state)
         }
     }
 )
