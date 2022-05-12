@@ -1,3 +1,4 @@
+import { NewTeam } from "./newTeams.js"
 import { Players } from "./Players.js"
 import { scoreTable } from "./Scores.js"
 import { Teams } from "./Teams.js"
@@ -8,8 +9,8 @@ export const Truncheons = () => {
     <h1>Truncheons & Flagons</h1>
 
         <section class="teams">
-            <h3>Teams</h3>
-            ${Teams()}
+            <h3>New Team</h3>
+            ${NewTeam()}
         </section>
         <section class="players">
             <h3>Players</h3>
