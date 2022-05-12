@@ -80,7 +80,8 @@ export const getState = () => {
 }
 
 export const setTeamId = (id) => {
-    return applicationState.state.teamId = id
+    applicationState.state.teamId = id
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 
