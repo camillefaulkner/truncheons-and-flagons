@@ -3,7 +3,8 @@ const mainContainer = document.querySelector(".container")
 const applicationState = {
     teams: [],
     players: [],
-    teamScores: []
+    teamScores: [],
+    state: {}
 }
 
 const API = "http://localhost:8088"
@@ -74,12 +75,12 @@ export const getTeamScores = () => {
     return applicationState.teamScores.map(score => ({ ...score }))
 }
 
-export const getApplicationState = () => {
+export const getState = () => {
     return { ...applicationState.state }
 }
 
-export const setTeamId = () => {
-    return applicationState.teamScores.map(score => ({ ...score }))
+export const setTeamId = (id) => {
+    return applicationState.state.teamId = id
 }
 
 

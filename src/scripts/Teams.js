@@ -1,4 +1,4 @@
-import { getTeams } from "./dataAccess.js";
+import { getTeams, setTeamId } from "./dataAccess.js";
 
 //map teams and print HTML for dropdown list
 
