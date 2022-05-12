@@ -3,6 +3,14 @@
     {
       "name": "Hawks",
       "id": 1
+    },
+    {
+      "name": "Sharks",
+      "id": 2
+    },
+    {
+      "name": "Flags",
+      "id": 3
     }
   ],
   "players": [
@@ -20,7 +28,23 @@
       "name": "hannah hall",
       "teamId": 1,
       "id": 3
+    },
+    {
+      "name": "Claire Morgan-Sanders",
+      "teamId": 2,
+      "id": 4
     }
   ],
-  "teamScores": []
+  "teamScores": [
+    {
+      "id": 1,
+      "teamId": 1,
+      "score": 80
+    },
+    {
+      "id": 2,
+      "teamId": 2,
+      "score": 20
+    }
+  ]
 }
