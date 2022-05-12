@@ -1,3 +1,4 @@
+import { scoreTable } from "./Scores.js"
 import { Teams } from "./Teams.js"
 
 
@@ -14,6 +15,7 @@ export const Truncheons = () => {
         </section>
         <section class="scores">
             <h3>Total Scores</h3>
+            ${scoreTable()}
         </section>
 
     <button class="button" id="submitButton">Submit</button>`
