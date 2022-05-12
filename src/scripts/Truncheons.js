@@ -1,3 +1,5 @@
+import { playerField } from "./newPlayer.js"
+// import { Players } from "./Players.js"
 import { NewTeam } from "./newTeams.js"
 import { Players } from "./Players.js"
 import { scoreTable } from "./Scores.js"
@@ -13,8 +15,8 @@ export const Truncheons = () => {
             ${NewTeam()}
         </section>
         <section class="players">
-            <h3>Players</h3>
-            ${Players()}
+            <h3>New Player</h3>
+            ${playerField()}
         </section>
         <section class="scores">
             <h3>Total Scores</h3>

@@ -1,5 +1,9 @@
 {
   "teams": [
+    {
+      "name": "Hawks",
+      "id": 1
+    }
   ],
   "players": [],
   "teamScores": []
