@@ -62,7 +62,7 @@ export const fetchTeamScores = () => {
 
 
 
-export const getTeam = () => {
+export const getTeams = () => {
     return applicationState.teams.map(team => ({ ...team }))
 }
 
