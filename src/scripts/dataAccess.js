@@ -99,3 +99,21 @@ export const saveTeamScores = (teamObj) => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
+
+export const sendTeam = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
+
+
+    return fetch(`${API}/teams`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            })
+
+}
