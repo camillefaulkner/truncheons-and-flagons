@@ -1,8 +1,8 @@
-import { getTeamScores, getTeam } from "./dataAccess.js"
+import { getTeamScores, getTeams } from "./dataAccess.js"
 
 export const scoreTable = () => {
     let scores = getTeamScores()
-    let teams = getTeam()
+    let teams = getTeams()
     let html = `<table>
                     <tr>
                         <th>Teams</th>
