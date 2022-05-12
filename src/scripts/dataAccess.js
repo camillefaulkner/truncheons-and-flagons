@@ -9,7 +9,7 @@ const applicationState = {
 
 const API = "http://localhost:8088"
 
-export const submitTeamScores = (teamSubmission) => {
+export const sendTeamScores = (teamSubmission) => {
     const fetchOptions = {
         method: "POST", //creation request, "please create"
         headers: {
@@ -111,6 +111,25 @@ export const sendTeam = (userServiceRequest) => {
 
 
     return fetch(`${API}/teams`, fetchOptions)
+        .then(response => response.json())
+        .then(() => {
+            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+            })
+
+}
+
+
+export const sendPlayer = (userServiceRequest) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userServiceRequest)
+    }
+
+
+    return fetch(`${API}/players`, fetchOptions)
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))

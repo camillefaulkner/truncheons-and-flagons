@@ -1,7 +1,7 @@
 import { getTeams, sendTeam } from "./dataAccess.js";
 
 export const NewTeam = () => {
-    let html = `<input type="text" name="newTeam" class="input" />
+    let html = `<input type="text" name="newTeam" class="input" placeholder="Team Name"/>
     <button class="button" id="createTeam">Create Team</button>`
 
     return html

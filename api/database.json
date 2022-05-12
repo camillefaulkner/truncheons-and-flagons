@@ -5,6 +5,22 @@
       "id": 1
     }
   ],
-  "players": [],
+  "players": [
+    {
+      "name": "John Smith",
+      "teamId": 1,
+      "id": 1
+    },
+    {
+      "name": "steve brownlee",
+      "teamId": 1,
+      "id": 2
+    },
+    {
+      "name": "hannah hall",
+      "teamId": 1,
+      "id": 3
+    }
+  ],
   "teamScores": []
 }
