@@ -74,6 +74,14 @@ export const getTeamScores = () => {
     return applicationState.teamScores.map(score => ({ ...score }))
 }
 
+export const getApplicationState = () => {
+    return { ...applicationState.state }
+}
+
+export const setTeamId = () => {
+    return applicationState.teamScores.map(score => ({ ...score }))
+}
+
 
 export const saveTeamScores = (teamObj) => {
     const fetchCompletions = {
