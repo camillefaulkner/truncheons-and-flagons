@@ -8,7 +8,7 @@ const applicationState = {
 
 const API = "http://localhost:8088"
 
-export const submitLetter = (teamSubmission) => {
+export const submitTeamScores = (teamSubmission) => {
     const fetchOptions = {
         method: "POST", //creation request, "please create"
         headers: {
