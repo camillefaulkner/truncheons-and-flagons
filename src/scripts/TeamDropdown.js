@@ -22,12 +22,12 @@ document.addEventListener(
         if (event.target.name === "team") {
             const [,teamId] = event.target.value.split("--")
             teamsSelected.push(parseInt(teamId))
-        }
-        if (teamsSelected.length === 3) {
-            setSelectedTeams(teamsSelected)
-            // setStartGame(startgame)
-            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-            Rounds()
+            if (teamsSelected.length === 3) {
+                setSelectedTeams(teamsSelected)
+                // setStartGame(startgame)
+                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+                Rounds()
+            }
         }
     }
 )
