@@ -8,8 +8,9 @@ import { setStartGame } from "./dataAccess.js"
 
 export const Truncheons = () => {
     return `
-    <h1>Truncheons & Flagons</h1>
-
+    <h1 class="header">Truncheons & Flagons</h1>
+    <div class="sidebyside">
+        <div class="leftside">
         <section class="teams">
             <h3>New Team</h3>
             ${NewTeam()}
@@ -23,15 +24,19 @@ export const Truncheons = () => {
             <h3>Leaderboard</h3>
             ${scoreTable()}
         </section>
-        
+        <br><br>
         <button class="button" id="submitButton">Start Button</button>
-
+        </div>
+        <div class="rightside">
         <section>
         ${TruncheonsV2()}
         </section>
         <section>
         ${Rounds()}
-        </section>`
+        </section>
+        </div>
+    </div>`
+
 }
 
 let startgame = true 

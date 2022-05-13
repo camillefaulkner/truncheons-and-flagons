@@ -1,20 +1,24 @@
 {
   "teams": [
     {
-      "name": "Hawks",
+      "name": "Red",
       "id": 1
     },
     {
-      "name": "Sharks",
+      "name": "Green",
       "id": 2
     },
     {
-      "name": "Flags",
+      "name": "Blue",
       "id": 3
     },
     {
-      "name": "Tigers",
+      "name": "Purple",
       "id": 4
+    },
+    {
+      "name": "Yellow",
+      "id": 5
     }
   ],
   "players": [
@@ -37,23 +41,33 @@
       "name": "Claire Morgan-Sanders",
       "teamId": 2,
       "id": 4
-    },
-    {
-      "name": " ",
-      "teamId": null,
-      "id": 5
     }
   ],
   "teamScores": [
     {
-      "id": 1,
       "teamId": 1,
-      "score": 80
+      "score": 0,
+      "id": 1
     },
     {
-      "id": 2,
       "teamId": 2,
-      "score": 20
+      "score": 0,
+      "id": 2
+    },
+    {
+      "teamId": 3,
+      "score": 0,
+      "id": 3
+    },
+    {
+      "teamId": 4,
+      "score": 0,
+      "id": 4
+    },
+    {
+      "teamId": 5,
+      "score": 0,
+      "id": 5
     }
   ]
 }

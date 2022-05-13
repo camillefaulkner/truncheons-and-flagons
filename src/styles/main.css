@@ -3,3 +3,18 @@
 h1, h3 {
     font-family: 'Uncial Antiqua', cursive;
 }
+
+.sidebyside {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.rightside {
+    margin-top: 3rem;
+}

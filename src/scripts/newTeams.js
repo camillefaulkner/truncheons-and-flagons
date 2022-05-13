@@ -1,4 +1,4 @@
-import { getTeams, sendTeam } from "./dataAccess.js";
+import { getState, getTeams, sendTeam, sendTeamScores } from "./dataAccess.js";
 
 export const NewTeam = () => {
     let html = `<input type="text" name="newTeam" class="input" placeholder="Team Name"/><br>
@@ -21,5 +21,16 @@ mainContainer.addEventListener("click", clickEvent => {
 
         // Send the data to the API for permanent storage
         sendTeam(dataToSendToAPI)
+        let teams = getTeams()
+        let length = teams.length
+
+
+        const scoreObject = {
+            teamId: length+1,
+            score: 0
+        }
+
+        console.log(scoreObject)
+        sendTeamScores(scoreObject)
     }
 })
