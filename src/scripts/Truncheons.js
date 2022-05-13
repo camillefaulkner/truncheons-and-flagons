@@ -1,6 +1,7 @@
 import { playerField } from "./newPlayer.js"
 import { NewTeam } from "./newTeams.js"
 import { scoreTable } from "./Scores.js"
+import { TruncheonsV2 } from "./TruncheonsV2.js"
 
 
 export const Truncheons = () => {
@@ -29,7 +30,6 @@ const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submitButton") {
-        mainContainer.innerHTML=''
-        // mainContainer.innerHTML= startgame()
+        mainContainer.innerHTML += TruncheonsV2()
     }
 })
