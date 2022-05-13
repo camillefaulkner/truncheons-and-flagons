@@ -1,4 +1,5 @@
 import { setSelectedTeams, getTeams, setStartGame } from "./dataAccess.js"
+import { render } from "./main.js"
 import { Rounds } from "./rounds.js"
 
 export const TeamsDropdown = () => {
@@ -25,8 +26,8 @@ document.addEventListener(
             if (teamsSelected.length === 3) {
                 setSelectedTeams(teamsSelected)
                 // setStartGame(startgame)
-                mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-                Rounds()
+                render()
+                Rounds("One")
             }
         }
     }

@@ -12,7 +12,7 @@ mainContainer.addEventListener(
 
 
 
-const render = () => {
+export const render = () => {
     fetchTeams()
         .then(() => fetchPlayers())
         .then(() => fetchTeamScores())
