@@ -84,6 +84,15 @@ export const setTeamId = (id) => {
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+export const setSelectedTeams = (array) => {
+    applicationState.state.selectedTeams = array
+}
+
+export const setStartGame = (boolean) => {
+    applicationState.state.startGame = boolean
+    console.log(getState())
+}
+
 
 export const saveTeamScores = (teamObj) => {
     const fetchCompletions = {
