@@ -2,6 +2,7 @@ import { playerField } from "./newPlayer.js"
 import { NewTeam } from "./newTeams.js"
 import { scoreTable } from "./Scores.js"
 import { TruncheonsV2 } from "./TruncheonsV2.js"
+import { Rounds } from "./rounds.js"
 
 
 export const Truncheons = () => {
@@ -21,8 +22,11 @@ export const Truncheons = () => {
             <h3>Leaderboard</h3>
             ${scoreTable()}
         </section>
-
-    <button class="button" id="submitButton">Start Button</button>`
+        
+        <button class="button" id="submitButton">Start Button</button>
+        <section>
+        ${Rounds()}
+        </section>`
 }
 
  
