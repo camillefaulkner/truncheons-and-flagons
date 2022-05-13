@@ -21,5 +21,15 @@ export const Truncheons = () => {
             ${scoreTable()}
         </section>
 
-    <button class="button" id="submitButton">Submit</button>`
+    <button class="button" id="submitButton">Start Button</button>`
 }
+
+ 
+const mainContainer = document.querySelector(".container")
+
+mainContainer.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "submitButton") {
+        mainContainer.innerHTML=''
+        // mainContainer.innerHTML= startgame()
+    }
+})
