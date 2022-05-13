@@ -90,7 +90,12 @@ export const setSelectedTeams = (array) => {
 
 export const setStartGame = (boolean) => {
     applicationState.state.startGame = boolean
-    console.log(getState())
+
+}
+
+export const setRoundNumber = (number) => {
+    applicationState.state.roundNumber = number
+
 }
 
 

@@ -1,7 +1,8 @@
 import { AddScores } from "./addScores.js"
-import { getState, getTeams } from "./dataAccess.js"
+import { getState, getTeams, setRoundNumber } from "./dataAccess.js"
+import { render } from "./main.js"
 
-export const Rounds = () => {
+export const Rounds = (number) => {
     let state = getState()
     let teams = getTeams()
     let html = ''
@@ -9,7 +10,7 @@ export const Rounds = () => {
         html = ''
     }
     else if (typeof state.selectedTeams !== "undefined") {
-        html += `<h3>Round One</h3>`
+        html += `<h3>Round ${number}</h3>`
         let counter = 1
         let foundTeams = state.selectedTeams.map(selectedTeam => {
             let findTeam = teams.find((team) => {
@@ -27,10 +28,18 @@ export const Rounds = () => {
     return html
 }
 
+let htmlCounter = 1
+
 const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveScore") {
         AddScores()
+        console.log(htmlCounter)
+        htmlCounter++
+        setRoundNumber(htmlCounter)
+        render()
+
+        //Rounds("Two")
     }
 })

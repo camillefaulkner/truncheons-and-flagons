@@ -3,11 +3,14 @@ import { NewTeam } from "./newTeams.js"
 import { scoreTable } from "./Scores.js"
 import { TruncheonsV2 } from "./TruncheonsV2.js"
 import { Rounds } from "./rounds.js"
-import { setStartGame } from "./dataAccess.js"
+import { getState, setStartGame } from "./dataAccess.js"
+import { render } from "./main.js"
 
 
 export const Truncheons = () => {
-    return `
+    let state = getState()
+    let counter = state.roundNumber
+    let html = `
     <h1 class="header">Truncheons & Flagons</h1>
     <div class="sidebyside">
         <div class="leftside">
@@ -32,10 +35,19 @@ export const Truncheons = () => {
         ${TruncheonsV2()}
         </section>
         <section>
-        ${Rounds()}
-        </section>
+        ${Rounds("One")}`
+
+        if (counter === 2) {
+            html += `${Rounds("Two")}`
+        }
+        else if (counter >= 3) {
+            html += `${Rounds("Two")} ${Rounds("Three")}`
+        }
+       html += `</section>
         </div>
     </div>`
+
+    return html
 
 }
 
@@ -45,7 +57,7 @@ const mainContainer = document.querySelector(".container")
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submitButton") {
         setStartGame(startgame)
-        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        render()
         TruncheonsV2()
     }
 })
