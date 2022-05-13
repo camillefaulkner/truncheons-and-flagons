@@ -21,5 +21,5 @@ export const Truncheons = () => {
             ${scoreTable()}
         </section>
 
-    <button class="button" id="submitButton">Submit</button>`
+    <button class="button" id="startButton">Start Game</button>`
 }
