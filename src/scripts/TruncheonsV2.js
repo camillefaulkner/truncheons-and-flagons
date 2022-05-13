@@ -1,4 +1,4 @@
-import { TeamsDropdown } from "./TeamDropdown"
+import { TeamsDropdown } from "./TeamDropdown.js"
 
 
 export const TruncheonsV2 = () => {
