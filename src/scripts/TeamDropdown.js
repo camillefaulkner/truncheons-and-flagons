@@ -14,7 +14,6 @@ export const TeamsDropdown = () => {
 }
 
 let teamsSelected = []
-let startgame = true
 const mainContainer = document.querySelector(".container")
 
 document.addEventListener(
@@ -26,7 +25,7 @@ document.addEventListener(
         }
         if (teamsSelected.length === 3) {
             setSelectedTeams(teamsSelected)
-            setStartGame(startgame)
+            // setStartGame(startgame)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
             Rounds()
         }

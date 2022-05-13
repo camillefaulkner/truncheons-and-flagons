@@ -1,34 +1,25 @@
-import { getState } from "./dataAccess.js"
+import { getState, getTeams } from "./dataAccess.js"
 
 
 export const Rounds = () => {
     let state = getState()
+    let teams = getTeams()
     let html = ''
-    if (typeof state.startGame === "undefined") {
+    if (typeof state.selectedTeams === "undefined") {
         html = ''
     }
-    else if (state.startGame === true) {
-        html += `<h3>Round One</h3>
-    
-            <div class="field">
-            <label>${state.selectedTeams[0]}</label>
+    else if (typeof state.selectedTeams !== "undefined") {
+        html += `<h3>Round One</h3>`
+        let foundTeams = state.selectedTeams.map(selectedteam => {
+            let findTeam = teams.find((team) => {
+                return selectedteam === team.id
+            })
+            html += `<div class="field">
+            <label>${findTeam.name}</label>
             <input type="text" class="playerFirstName" class="input" placeholder=""/>
-    </div>
-    <div class="field">
-            <label>${state.selectedTeams[1]}</label>
-            <input type="text" class="playerLastName" class="input" placeholder=""/>
-    </div>
-    <div class="field">
-            <label>${state.selectedTeams[2]}</label>
-            <input type="text" class="playerLastName" class="input" placeholder=""/>
-    </div>`
+            </div>`
+        })
+        html += `<button class="button" id="addplayer">Save Round Scores</button>`
     }
-
-    // let teamList = teams.map(team => {
-    //     return `<option value="${team.id}">${team.name}</option>`
-    // })
-    // html += teamList.join('')
-    // html += `</select><br>`
-    // html += `<button class="button" id="addplayer">Add Player to Team</button>`
     return html
 }

@@ -3,6 +3,7 @@ import { NewTeam } from "./newTeams.js"
 import { scoreTable } from "./Scores.js"
 import { TruncheonsV2 } from "./TruncheonsV2.js"
 import { Rounds } from "./rounds.js"
+import { setStartGame } from "./dataAccess.js"
 
 
 export const Truncheons = () => {
@@ -24,16 +25,22 @@ export const Truncheons = () => {
         </section>
         
         <button class="button" id="submitButton">Start Button</button>
+
+        <section>
+        ${TruncheonsV2()}
+        </section>
         <section>
         ${Rounds()}
         </section>`
 }
 
- 
+let startgame = true 
 const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submitButton") {
-        mainContainer.innerHTML += TruncheonsV2()
+        setStartGame(startgame)
+        mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+        TruncheonsV2()
     }
 })
