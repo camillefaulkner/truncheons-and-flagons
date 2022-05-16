@@ -3,31 +3,35 @@
 
 import { getState, getTeamScores, sendTeamScores, setTeamScores } from "./dataAccess.js"
 
-let teamScores = {}
+
 export const AddScores = () => {
     let scores = getTeamScores()
     let state = getState()
     let selectedTeams = state.selectedTeams
     let roundScores = state.teamScores
 
-    let score1 = parseInt(document.querySelector("input[name='1']").value)
+
+    selectedTeams[team.id] = parseInt(document.querySelector(`#${team.id}`).value)
     let score2 = parseInt(document.querySelector("input[name='2']").value)
     let score3 = parseInt(document.querySelector("input[name='3']").value)
 
+    //if selectedTeams has team.id, then add to score property
+
     if (state.roundNumber === 1) {
-    scores.map(score => {
-        if(score.teamId === selectedTeams[0]) {
-            scoresArray.push(score.score + parseInt(score1))
-        }
-       else if (score.teamId === selectedTeams[1]) {
-            scoresArray.push(score.score + parseInt(score2))
-        }
-        else if (score.teamId === selectedTeams[2]) {
-            scoresArray.push(score.score + parseInt(score3))
-        }
-    })
-    console.log("round 1", scoresArray)
-    setTeamScores(scoresArray)
+        scores.map(score => {
+            if (Object.keys(selectedTeams) === score.teamId) {
+                console.log(`test`)
+                Object.values(selectedTeams)[0] = score.score + parseInt(score1)
+                Object.values(selectedTeams)[1] = score.score + parseInt(score2)
+                Object.values(selectedTeams)[2] = score.score + parseInt(score3)
+            }
+            //    else if (score.teamId === selectedTeams.hasOwnProperty([score.teamId])) {
+            //     }
+            //     else if (score.teamId === selectedTeams.hasOwnProperty([score.teamId])) {
+            //     }
+        })
+        console.log(selectedTeams)
+        // setTeamScores(scoresArray)
     }
 
     else if (state.roundNumber === 2) {
