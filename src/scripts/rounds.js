@@ -9,7 +9,7 @@ export const Rounds = (number) => {
     if (typeof state.selectedTeams === "undefined") {
         html = ''
     }
-    else if (typeof state.selectedTeams !== "undefined") {
+    else if (typeof state.selectedTeams !== "undefined" && state.roundNumber < 4) {
         html += `<h3>Round ${number}</h3>`
         let counter = 1
         let teamsMap = teams.map(team => {
@@ -24,6 +24,8 @@ export const Rounds = (number) => {
         })
 
         html += `<button class="button" id="saveScore">Save Round Scores</button>`
+    } else if (state.roundNumber >= 4) {
+        html = `${team.name} is the winner!`
     }
     return html
 }
