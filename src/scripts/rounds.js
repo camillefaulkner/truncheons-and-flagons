@@ -73,7 +73,13 @@ document.addEventListener(
         if (event.target.name === "scoreinput") {
             teams.map(team => {
                 if (parseInt(event.target.id) === team.id) {
+                    console.log(`yes`)
+                    if(parseInt(event.target.value) > 3) {
+                        window.alert("Points cannot be greater than 3.")
+                    }
+                    else {
                     selectedTeams[team.id] += parseInt(event.target.value)
+                    }
                 }
             })
 
