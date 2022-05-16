@@ -10,9 +10,9 @@ export const AddScores = () => {
     let selectedTeams = state.selectedTeams
     let roundScores = state.teamScores
 
-    const score1 = document.querySelector("input[name='1']").value
-    const score2 = document.querySelector("input[name='2']").value
-    const score3 = document.querySelector("input[name='3']").value
+    let score1 = parseInt(document.querySelector("input[name='1']").value)
+    let score2 = parseInt(document.querySelector("input[name='2']").value)
+    let score3 = parseInt(document.querySelector("input[name='3']").value)
 
     if (state.roundNumber === 1) {
     scores.map(score => {
