@@ -10,6 +10,13 @@ import { render } from "./main.js"
 export const Truncheons = () => {
     let state = getState()
     let counter = state.roundNumber
+    let string = "One"
+    if (counter === 2) {
+        string = "Two"
+    }
+    else if (counter === 3) {
+        string = "Three"
+    }
     let html = `
     <h1 class="header">Truncheons & Flagons</h1>
     <div class="sidebyside">
@@ -35,14 +42,7 @@ export const Truncheons = () => {
         ${TruncheonsV2()}
         </section>
         <section>
-        ${Rounds("One")}`
-
-        if (counter === 2) {
-            html += `${Rounds("Two")}`
-        }
-        else if (counter >= 3) {
-            html += `${Rounds("Two")} ${Rounds("Three")}`
-        }
+        ${Rounds(string)}`
        html += `</section>
         </div>
     </div>`

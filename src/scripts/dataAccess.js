@@ -95,8 +95,14 @@ export const setStartGame = (boolean) => {
 
 export const setRoundNumber = (number) => {
     applicationState.state.roundNumber = number
+    mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const setTeamScores = (object) => {
+    applicationState.state.teamScores = object
 
 }
+
 
 
 export const saveTeamScores = (teamObj) => {

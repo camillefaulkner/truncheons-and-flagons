@@ -29,7 +29,7 @@ document.addEventListener(
                 setSelectedTeams(teamsSelected)
                 // setStartGame(startgame)
                 render()
-                Rounds("One")
+                Rounds()
             }
         }
     }

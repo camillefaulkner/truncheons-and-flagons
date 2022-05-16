@@ -12,31 +12,32 @@ export const Rounds = (number) => {
     else if (typeof state.selectedTeams !== "undefined") {
         html += `<h3>Round ${number}</h3>`
         let counter = 1
-        let foundTeams = state.selectedTeams.map(selectedTeam => {
-            let findTeam = teams.find((team) => {
-                return selectedTeam === team.id
-            })
+        let teamsMap = teams.map(team => {
+            if (state.selectedTeams.hasOwnProperty([team.id])) {
             html += `<div class="field">
-            <label>${findTeam.name}</label>
-            <input type="text" name="${counter}" id="${findTeam.id}" class="input" placeholder=""/>
+            <label>${team.name}</label>
+            <input type="text" name="${counter}" id="${team.id}" class="input" placeholder=""/>
             </div>`
 
             counter++
+            }
         })
+    
         html += `<button class="button" id="saveScore">Save Round Scores</button>`
     }
     return html
 }
 
 let htmlCounter = 1
+setRoundNumber(htmlCounter)
 
 const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveScore") {
-        AddScores()
-        console.log(htmlCounter)
+        //AddScores()
         htmlCounter++
+        console.log(htmlCounter)
         setRoundNumber(htmlCounter)
         render()
 
