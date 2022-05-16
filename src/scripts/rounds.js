@@ -29,14 +29,15 @@ export const Rounds = (number) => {
 }
 
 let htmlCounter = 1
+setRoundNumber(htmlCounter)
 
 const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveScore") {
         AddScores()
-        console.log(htmlCounter)
         htmlCounter++
+        console.log(htmlCounter)
         setRoundNumber(htmlCounter)
         render()
 
