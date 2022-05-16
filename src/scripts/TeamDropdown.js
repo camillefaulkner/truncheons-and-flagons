@@ -14,7 +14,7 @@ export const TeamsDropdown = () => {
     return html
 }
 
-let teamsSelected = []
+let teamsSelected = {}
 const mainContainer = document.querySelector(".container")
 
 document.addEventListener(
@@ -22,8 +22,10 @@ document.addEventListener(
     (event) => {
         if (event.target.name === "team") {
             const [,teamId] = event.target.value.split("--")
-            teamsSelected.push(parseInt(teamId))
-            if (teamsSelected.length === 3) {
+            let number = [teamId]
+            teamsSelected[number] = 0
+            console.log(teamsSelected)
+            if (Object.keys(teamsSelected).length === 3) {
                 setSelectedTeams(teamsSelected)
                 // setStartGame(startgame)
                 render()

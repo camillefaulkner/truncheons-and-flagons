@@ -84,8 +84,8 @@ export const setTeamId = (id) => {
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const setSelectedTeams = (array) => {
-    applicationState.state.selectedTeams = array
+export const setSelectedTeams = (obj) => {
+    applicationState.state.selectedTeams = obj
 }
 
 export const setStartGame = (boolean) => {
