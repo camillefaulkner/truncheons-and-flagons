@@ -1,5 +1,5 @@
 import { AddScores } from "./addScores.js"
-import { getState, getTeams, setRoundNumber } from "./dataAccess.js"
+import { getState, getTeams, setRoundNumber, } from "./dataAccess.js"
 import { render } from "./main.js"
 
 export const Rounds = (number) => {
@@ -14,15 +14,15 @@ export const Rounds = (number) => {
         let counter = 1
         let teamsMap = teams.map(team => {
             if (state.selectedTeams.hasOwnProperty([team.id])) {
-            html += `<div class="field">
+                html += `<div class="field">
             <label>${team.name}</label>
-            <input type="text" name="${counter}" id="${team.id}" class="input" placeholder=""/>
+            <input type="text" name="scoreinput" id="${team.id}" class="scoreinput" placeholder=""/>
             </div>`
 
-            counter++
+                counter++
             }
         })
-    
+
         html += `<button class="button" id="saveScore">Save Round Scores</button>`
     }
     return html
@@ -35,7 +35,7 @@ const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveScore") {
-        //AddScores()
+        // AddScores()
         htmlCounter++
         console.log(htmlCounter)
         setRoundNumber(htmlCounter)
@@ -44,3 +44,24 @@ mainContainer.addEventListener("click", clickEvent => {
         //Rounds("Two")
     }
 })
+
+
+document.addEventListener(
+    "change",
+    (event) => {
+        let teams = getTeams()
+        let state = getState()
+        let selectedTeams = state.selectedTeams
+        // let roundScores = state.teamScores
+        if (event.target.name === "scoreinput") {
+            teams.map(team => {
+                if (parseInt(event.target.id) === team.id) {
+                    console.log(`yes`)
+                    selectedTeams[team.id] += parseInt(event.target.value)
+                }
+            })
+
+            console.log(selectedTeams)
+        }
+    }
+)
