@@ -8,9 +8,9 @@ export const AddScores = () => {
     let state = getState()
     let selectedTeams = state.selectedTeams
 
-    const score1 = document.querySelector("input[name='1']").value
-    const score2 = document.querySelector("input[name='2']").value
-    const score3 = document.querySelector("input[name='3']").value
+    let score1 = parseInt(document.querySelector("input[name='1']").value)
+    let score2 = parseInt(document.querySelector("input[name='2']").value)
+    let score3 = parseInt(document.querySelector("input[name='3']").value)
 
     console.log(score1, score2, score3)
 
