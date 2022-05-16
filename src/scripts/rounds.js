@@ -1,16 +1,16 @@
-import { AddScores } from "./addScores.js"
-import { getState, getTeams, setRoundNumber, } from "./dataAccess.js"
+import { getState, getTeams, setRoundNumber, saveTeamScores } from "./dataAccess.js"
 import { render } from "./main.js"
 
 export const Rounds = (number) => {
     let state = getState()
     let teams = getTeams()
+    let selectedTeams = state.selectedTeams
     let html = ''
     if (typeof state.selectedTeams === "undefined") {
         html = ''
     }
-    else if (typeof state.selectedTeams !== "undefined") {
-        html += `<h3>Round ${number}</h3>`
+    else if (typeof state.selectedTeams !== "undefined" && state.roundNumber < 4) {
+        html = `<h3>Round ${number}</h3>`
         let counter = 1
         let teamsMap = teams.map(team => {
             if (state.selectedTeams.hasOwnProperty([team.id])) {
@@ -24,6 +24,27 @@ export const Rounds = (number) => {
         })
 
         html += `<button class="button" id="saveScore">Save Round Scores</button>`
+    } else if (state.roundNumber >= 4) {
+        // saveTeamScores()
+        // html = ''
+
+        //calculate max points
+        let values = Object.values(selectedTeams);
+        let maxPoints = Math.max(...values);
+
+        //find key that has the max points as a value
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
+        let winnerTeam = getKeyByValue(selectedTeams, maxPoints)
+
+        const foundWinner = teams.find((team) => {
+            return parseInt(team.id) === parseInt(winnerTeam)
+        })
+        html = `<br><br><br><br>Team ${foundWinner.name} is the winner with ${maxPoints} points!`
+        //if teamScores.teamId === Object.keys(selectedTeams)
+        //then teamScores.scores += Object.value
+        //how to send to saveTeamScores() ???
     }
     return html
 }
@@ -35,13 +56,10 @@ const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveScore") {
-        // AddScores()
         htmlCounter++
         console.log(htmlCounter)
         setRoundNumber(htmlCounter)
         render()
-
-        //Rounds("Two")
     }
 })
 
@@ -52,7 +70,6 @@ document.addEventListener(
         let teams = getTeams()
         let state = getState()
         let selectedTeams = state.selectedTeams
-        // let roundScores = state.teamScores
         if (event.target.name === "scoreinput") {
             teams.map(team => {
                 if (parseInt(event.target.id) === team.id) {
