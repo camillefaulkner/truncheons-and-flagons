@@ -32,6 +32,7 @@ export const Truncheons = () => {
         <hr>
         <section class="scores">
             <h3>Leaderboard</h3>
+            <p class="disclaimer">Teams must have 3 players to join a game.</p>
             ${scoreTable()}
         </section>
         <br><br>

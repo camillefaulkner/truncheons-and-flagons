@@ -46,7 +46,7 @@ mainContainer.addEventListener("click", clickEvent => {
             sendPlayer(dataToSendToAPI)
         }
         else {
-            window.alert(`no`)
+            window.alert(`There can only be up to 3 players per team.`)
         }
         // Send the data to the API for permanent storage
     }
