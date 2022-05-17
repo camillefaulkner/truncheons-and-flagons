@@ -1,4 +1,4 @@
-import { getState, getTeams, setRoundNumber, saveTeamScores } from "./dataAccess.js"
+import { getState, getTeams, setRoundNumber, saveTeamScores, getTeamScores } from "./dataAccess.js"
 import { render } from "./main.js"
 
 export const Rounds = (number) => {
@@ -55,11 +55,30 @@ setRoundNumber(htmlCounter)
 const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
+    let teamScores = getTeamScores()
+    let state = getState()
+    let selectedTeams = state.selectedTeams
     if (clickEvent.target.id === "saveScore") {
         htmlCounter++
         console.log(htmlCounter)
         setRoundNumber(htmlCounter)
         render()
+        if (state.roundNumber >= 3) {
+            console.log(`test`)
+            let score = teamScores.score
+
+            teamScores.map(teamscore => {
+                if (teamscore.teamId === parseInt(Object.keys(selectedTeams))) {
+                    
+                    const scoreObject = {
+                        score: parseInt(score) + parseInt(selectedTeams[teamscore.teamId])
+                    }
+                    
+                    console.log(scoreObject)
+                    saveTeamScores(scoreObject)
+                }
+            })
+        }
     }
 })
 
@@ -73,7 +92,6 @@ document.addEventListener(
         if (event.target.name === "scoreinput") {
             teams.map(team => {
                 if (parseInt(event.target.id) === team.id) {
-                    console.log(`yes`)
                     if(parseInt(event.target.value) > 3) {
                         window.alert("Points cannot be greater than 3.")
                     }
