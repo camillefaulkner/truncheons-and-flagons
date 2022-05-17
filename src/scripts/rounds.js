@@ -1,5 +1,4 @@
-import { AddScores } from "./addScores.js"
-import { getState, getTeams, setRoundNumber, saveTeamScores } from "./dataAccess.js"
+import { getState, getTeams, setRoundNumber, updateTeamScores, getTeamScores } from "./dataAccess.js"
 import { render } from "./main.js"
 
 export const Rounds = (number) => {
@@ -56,12 +55,26 @@ setRoundNumber(htmlCounter)
 const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
+    let teamScores = getTeamScores()
+    let state = getState()
+    let selectedTeams = state.selectedTeams
     if (clickEvent.target.id === "saveScore") {
         AddScores()
         htmlCounter++
         console.log(htmlCounter)
         setRoundNumber(htmlCounter)
         render()
+        if (state.roundNumber >= 3) {
+            //iterate teamscores, if teamId === a key of the selectedteams object
+            //then pull that key's value and add it to the permanent state score with the same teamId
+            teamScores.map(teamscore => {
+                if (Object.keys(selectedTeams).includes(teamscore.teamId.toString())) { //the array values were keys
+                    
+                    let score = teamscore.score + parseInt(selectedTeams[teamscore.teamId])
+                    updateTeamScores(score, teamscore.teamId) //score, teamId
+                }
+            })
+        }
     }
 })
 
@@ -74,8 +87,7 @@ document.addEventListener(
         if (event.target.name === "scoreinput") {
             teams.map(team => {
                 if (parseInt(event.target.id) === team.id) {
-                    console.log(`yes`)
-                     if(parseInt(event.target.value) > 3) {
+                    if(parseInt(event.target.value) > 3) {
                         window.alert("Points cannot be greater than 3.")
                     }
                     else {

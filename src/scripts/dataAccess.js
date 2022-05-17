@@ -18,7 +18,7 @@ export const sendTeamScores = (teamSubmission) => {
         body: JSON.stringify(teamSubmission)
     }
     return fetch(`${API}/teamScores`,
-     fetchOptions) //here's the url i wanna send a request to
+        fetchOptions) //here's the url i wanna send a request to
         .then(response => response.json()) //when response happens, returns string of json data, string => data structure(response.json)
         .then(() => { //then, do this (alert! things have changed)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -105,17 +105,19 @@ export const setTeamScores = (object) => {
 
 
 
-export const saveTeamScores = (teamObj) => {
-    const fetchCompletions = {
-        method: "POST", //please create this object I sent you in permanent state
+export const updateTeamScores = (score, teamId) => {
+
+    fetch(`http://localhost:8088/teamScores/${teamId}`, {
+        method: "PATCH", //please create this object I sent you in permanent state
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(teamObj)
-    }
-    return fetch(`${API}/teamScores`, fetchCompletions)
-        .then(response => response.json())
-        .then(() => {
+        body: JSON.stringify({
+            "score": score
+        })
+    })
+    .then(response => response.json()) //when response happens, returns string of json data, string => data structure(response.json)
+        .then(() => { //then, do this (alert! things have changed)
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
         })
 }
@@ -134,7 +136,7 @@ export const sendTeam = (userServiceRequest) => {
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-            })
+        })
 
 }
 
@@ -153,6 +155,6 @@ export const sendPlayer = (userServiceRequest) => {
         .then(response => response.json())
         .then(() => {
             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
-            })
+        })
 
 }
