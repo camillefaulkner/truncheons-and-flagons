@@ -1,4 +1,4 @@
-import { getState, getTeams, setRoundNumber, saveTeamScores, getTeamScores } from "./dataAccess.js"
+import { getState, getTeams, setRoundNumber, updateTeamScores, getTeamScores } from "./dataAccess.js"
 import { render } from "./main.js"
 
 export const Rounds = (number) => {
@@ -64,18 +64,13 @@ mainContainer.addEventListener("click", clickEvent => {
         setRoundNumber(htmlCounter)
         render()
         if (state.roundNumber >= 3) {
-            console.log(`test`)
-            let score = teamScores.score
-
+            //iterate teamscores, if teamId === a key of the selectedteams object
+            //then pull that key's value and add it to the permanent state score with the same teamId
             teamScores.map(teamscore => {
-                if (teamscore.teamId === parseInt(Object.keys(selectedTeams))) {
+                if (Object.keys(selectedTeams).includes(teamscore.teamId.toString())) { //the array values were keys
                     
-                    const scoreObject = {
-                        score: parseInt(score) + parseInt(selectedTeams[teamscore.teamId])
-                    }
-                    
-                    console.log(scoreObject)
-                    saveTeamScores(scoreObject)
+                    let score = teamscore.score + parseInt(selectedTeams[teamscore.teamId])
+                    updateTeamScores(score, teamscore.teamId) //score, teamId
                 }
             })
         }
