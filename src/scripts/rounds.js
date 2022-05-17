@@ -1,3 +1,4 @@
+import { AddScores } from "./addScores.js"
 import { getState, getTeams, setRoundNumber, saveTeamScores } from "./dataAccess.js"
 import { render } from "./main.js"
 
@@ -56,13 +57,13 @@ const mainContainer = document.querySelector(".container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveScore") {
+        AddScores()
         htmlCounter++
         console.log(htmlCounter)
         setRoundNumber(htmlCounter)
         render()
     }
 })
-
 
 document.addEventListener(
     "change",
@@ -74,16 +75,16 @@ document.addEventListener(
             teams.map(team => {
                 if (parseInt(event.target.id) === team.id) {
                     console.log(`yes`)
-                    if(parseInt(event.target.value) > 3) {
+                     if(parseInt(event.target.value) > 3) {
                         window.alert("Points cannot be greater than 3.")
                     }
                     else {
                     selectedTeams[team.id] += parseInt(event.target.value)
-                    }
+                    } 
                 }
             })
 
             console.log(selectedTeams)
-        }
+        } 
     }
 )

@@ -1,4 +1,4 @@
-import { setSelectedTeams, getTeams, setStartGame } from "./dataAccess.js"
+import { setSelectedTeams, getTeams, setStartGame, getPlayers } from "./dataAccess.js"
 import { render } from "./main.js"
 import { Rounds } from "./rounds.js"
 
@@ -6,8 +6,20 @@ export const TeamsDropdown = () => {
     let teams = getTeams()
     let html = `<select name="team">
     <option value="0">Choose one...</option>`
+
+    let players = getPlayers()
+    
     let teamList = teams.map(team => {
-        return `<option value="id--${team.id}">${team.name}</option>`
+        let i = 0
+        players.map(player => {
+            if (parseInt(player.teamId) === parseInt(team.id)) {
+                i++
+                if (i === 3) {
+                    html += `<option value="id--${team.id}">${team.name}</option>`
+                }
+            }
+        })
+        
     })
     html += teamList.join('')
     html += `</select><br>`
