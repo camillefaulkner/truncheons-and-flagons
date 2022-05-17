@@ -59,6 +59,7 @@ mainContainer.addEventListener("click", clickEvent => {
     let state = getState()
     let selectedTeams = state.selectedTeams
     if (clickEvent.target.id === "saveScore") {
+        AddScores()
         htmlCounter++
         console.log(htmlCounter)
         setRoundNumber(htmlCounter)
@@ -77,7 +78,6 @@ mainContainer.addEventListener("click", clickEvent => {
     }
 })
 
-
 document.addEventListener(
     "change",
     (event) => {
@@ -92,11 +92,11 @@ document.addEventListener(
                     }
                     else {
                     selectedTeams[team.id] += parseInt(event.target.value)
-                    }
+                    } 
                 }
             })
 
             console.log(selectedTeams)
-        }
+        } 
     }
 )
