@@ -38,7 +38,7 @@ export const Truncheons = () => {
         <br>
         <button class="button" id="submitButton">Start Button</button>
         </div>
-        <div class="rightside">
+        <div id="rightSide" class="rightside" style="${state.startGame?"background-color: #131C0D; min-width: 20rem; text-align: center; filter: drop-shadow(2px 4px 8px #585858); padding-bottom: 2rem;": ""}">
         <section>
         ${TruncheonsV2()}
         </section>
