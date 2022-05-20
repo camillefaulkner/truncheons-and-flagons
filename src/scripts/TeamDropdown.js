@@ -5,7 +5,7 @@ import { Rounds } from "./rounds.js"
 export const TeamsDropdown = () => {
     let teams = getTeams()
     let html = `<select name="team">
-    <option value="0">Choose one...</option>`
+    <option value="0">Choose a Team</option>`
 
     let players = getPlayers()
     

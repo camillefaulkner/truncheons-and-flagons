@@ -1,12 +1,13 @@
 
 //add scores to database
 
-import { getState, getTeamScores, sendTeamScores, setTeamScores } from "./dataAccess.js"
+import { getState, getTeams, getTeamScores, sendTeamScores, setTeamScores } from "./dataAccess.js"
 
 
 export const AddScores = () => {
     let scores = getTeamScores()
     let state = getState()
+    let team = getTeams()
     let selectedTeams = state.selectedTeams
     let roundScores = state.teamScores
 

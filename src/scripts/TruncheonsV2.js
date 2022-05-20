@@ -10,6 +10,8 @@ export const TruncheonsV2 = () => {
     } else {
         html += `
         <section class="teams">
+        <h3>New Game</h3>
+        <h4>Pick Your Teams</h4>
         ${TeamsDropdown()}
         ${TeamsDropdown()}
         ${TeamsDropdown()}
