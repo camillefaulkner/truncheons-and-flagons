@@ -8,7 +8,7 @@ export const scoreTable = () => {
     let html = ''
 
 
-    html = `<table>
+    html = `<table class="table">
                     <tr>
                         <th>Teams</th>
                         <th>Players</th>

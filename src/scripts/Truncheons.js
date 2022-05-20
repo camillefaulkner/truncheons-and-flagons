@@ -32,10 +32,10 @@ export const Truncheons = () => {
         <hr>
         <section class="scores">
             <h3>Leaderboard</h3>
-            <p class="disclaimer">Teams must have 3 players to join a game.</p>
+            <p class="disclaimer">(Teams must have 3 players to join a game.)</p>
             ${scoreTable()}
         </section>
-        <br><br>
+        <br>
         <button class="button" id="submitButton">Start Button</button>
         </div>
         <div class="rightside">

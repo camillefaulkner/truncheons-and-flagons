@@ -61,22 +61,32 @@
       "name": "Tommy Turner",
       "teamId": 3,
       "id": 8
+    },
+    {
+      "name": "John Doe",
+      "teamId": 3,
+      "id": 9
+    },
+    {
+      "name": "James Scott",
+      "teamId": 3,
+      "id": 10
     }
   ],
   "teamScores": [
     {
       "teamId": 1,
-      "score": 3,
+      "score": 6,
       "id": 1
     },
     {
       "teamId": 2,
-      "score": 17,
+      "score": 23,
       "id": 2
     },
     {
       "teamId": 3,
-      "score": 10,
+      "score": 19,
       "id": 3
     },
     {
