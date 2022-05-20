@@ -7,7 +7,7 @@ const applicationState = {
     state: {}
 }
 
-const API = "http://localhost:8088"
+const API = "https://coral-app-qn2zm.ondigitalocean.app"
 
 export const sendTeamScores = (teamSubmission) => {
     const fetchOptions = {
