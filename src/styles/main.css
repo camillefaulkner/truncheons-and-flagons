@@ -19,6 +19,13 @@ h1, h3 {
     text-shadow: 2px 2px #131c0d;
 }
 
+.footer {
+    display: flex;
+    justify-content: center;
+    background-color: #636343;
+    margin-top: 1rem;
+}
+
 
 .disclaimer {
     font-size: 10pt;
@@ -97,5 +104,29 @@ button, input[type="submit"], input[type="reset"] {
     background-color: #7c142c;
     padding-top: 2rem;
     padding-bottom: 2rem;
+}
+
+.github {
+    width: 1rem;
+    margin-top: 1.2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+}
+
+.firstline, .secondline {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -1.3rem;
+}
+
+.secondline {
+    margin-bottom: 1rem;
 }
 

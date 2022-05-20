@@ -47,7 +47,17 @@ export const Truncheons = () => {
        html += `</section>
         </div>
     </div>`
-
+    html += ` <footer class="footer">
+    <div class="firstline">
+    <p>Click the Octocat to Learn More!</p>
+    </div>
+    <div class="secondline">
+    <p>©️ Camille Faulkner</p><br>
+    <a href="https://github.com/camillefaulkner/truncheons-and-flagons" target="_blank"><img class="github" src="styles/images/githublogo.svg"></a>
+    <p> and Claire Morgan-Sanders</p>
+    <a href="https://github.com/crmo2444/cc-truncheons-and-flagons" target="_blank"><img class="github" src="styles/images/githublogo.svg"></a>
+    </div>
+</footer>`
     return html
 
 }
