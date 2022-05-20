@@ -41,7 +41,7 @@ export const Rounds = (number) => {
         const foundWinner = teams.find((team) => {
             return parseInt(team.id) === parseInt(winnerTeam)
         })
-        html = `<br><br><br><br>Team ${foundWinner.name} is the winner with ${maxPoints} points!`
+        html = `<br><br><br><br><div class="winner">Team ${foundWinner.name} is the winner with ${maxPoints} points!</div>`
         //if teamScores.teamId === Object.keys(selectedTeams)
         //then teamScores.scores += Object.value
         //how to send to saveTeamScores() ???

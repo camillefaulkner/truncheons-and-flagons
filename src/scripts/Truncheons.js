@@ -36,7 +36,7 @@ export const Truncheons = () => {
             ${scoreTable()}
         </section>
         <br>
-        <button class="button" id="submitButton">Start Button</button>
+        <button class="startbutton" id="submitButton">Start Game</button>
         </div>
         <div id="rightSide" class="rightside" style="${state.startGame?"background-color: #131C0D; min-width: 20rem; text-align: center; filter: drop-shadow(2px 4px 8px #585858); padding-bottom: 2rem;": ""}">
         <section>
