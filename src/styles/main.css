@@ -13,6 +13,9 @@ h1, h3 {
 .header {
     display: flex;
     justify-content: center;
+    background-color: #636343;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -22,7 +25,9 @@ h1, h3 {
 
 body {
     color: #b5864c;
-    background-color: #40492b;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 button, input[type="submit"], input[type="reset"] {
@@ -53,7 +58,8 @@ button, input[type="submit"], input[type="reset"] {
 .leftside {
     background-color: #131c0d;
     min-width: 20rem;
-
+    filter: drop-shadow(2px 4px 8px #585858);
+    padding-bottom: 2rem;
     text-align: center;
 }
 
